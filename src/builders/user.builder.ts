@@ -26,7 +26,7 @@ export function buildUser(overrides: Partial<TestUser> = {}): TestUser {
     const uuid = faker.string.uuid();
     return {
         email: `test-${uuid}@gymai-test.local`,
-        password: faker.internet.password({ length: 16 }),
+        password: `Aa1!${faker.internet.password({ length: 12 })}`,
         displayName: faker.person.firstName(),
         locale: 'es',
         ...overrides
