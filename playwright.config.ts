@@ -28,23 +28,26 @@ export default defineConfig({
       testMatch: /global\.setup\.ts/,
     },
     {
+      name: 'api',
+      testDir: './tests/api',
+      dependencies: ['setup'],
+    },
+    {
       name: 'e2e-authenticated',
-      testDir: './tests/e2e',
+      testDir: './tests/e2e/authenticated',
       dependencies: ['setup'],
       use: {
         ...devices['Desktop Chrome'],
         storageState: 'playwright/.auth/user.json',
       },
-      testIgnore: /login\.e2e/,
     },
     {
       name: 'e2e-anon',
-      testDir: './tests/e2e',
+      testDir: './tests/e2e/auth',
       dependencies: ['setup'],
       use: {
         ...devices['Desktop Chrome'],
       },
-      testMatch: /login\.e2e/,
     },
   ],
 
