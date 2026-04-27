@@ -24,17 +24,28 @@ export default defineConfig({
   
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    }
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
+      name: 'setup',
+      testMatch: /global\.setup\.ts/,
+    },
+    {
+      name: 'e2e-authenticated',
+      testDir: './tests/e2e',
+      dependencies: ['setup'],
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: 'playwright/.auth/user.json',
+      },
+      testIgnore: /login\.e2e/,
+    },
+    {
+      name: 'e2e-anon',
+      testDir: './tests/e2e',
+      dependencies: ['setup'],
+      use: {
+        ...devices['Desktop Chrome'],
+      },
+      testMatch: /login\.e2e/,
+    },
   ],
 
   /* 3. ¡AQUÍ ESTÁ LA MAGIA DEL WEBSERVER! */

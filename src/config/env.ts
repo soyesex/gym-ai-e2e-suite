@@ -5,6 +5,7 @@ const EnvSchema = z.object({
   SUPABASE_URL: z.string().url(),
   SUPABASE_SERVICE_ROLE_KEY: z.string().min(1),
   GEMINI_API_KEY: z.string().min(1).optional(),  
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
 })
 
 export const env = EnvSchema.parse(process.env);
