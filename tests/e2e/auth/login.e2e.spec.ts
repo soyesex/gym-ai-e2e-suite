@@ -14,7 +14,6 @@ test.describe('Login flow', () => {
         const login = new LoginPage(page);
         await login.goto();
         await login.login(testUser.email, testUser.password);
-        await expect(page).toHaveURL(/onboarding/);
-        await page.pause();
+        await expect(page).toHaveURL(/onboarding/, { timeout: 15000 });
     });
 });

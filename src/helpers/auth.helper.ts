@@ -26,7 +26,7 @@ export async function loginAndSaveState(
 
   // 4. Construir el storageState
   //    - El "project ref" para local lo sacás del hostname de SUPABASE_URL
-  const ref = new URL(env.SUPABASE_URL).hostname
+  const ref = new URL(env.SUPABASE_URL).hostname.split('.')[0];
   //    - Cookie name: `sb-<ref>-auth-token.0`
   //    - Cookie value: el JSON de la session (stringified)
   //    - localStorage key: `sb-<ref>-auth-token`
