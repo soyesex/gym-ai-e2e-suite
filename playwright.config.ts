@@ -54,7 +54,7 @@ export default defineConfig({
   /* 3. ¡AQUÍ ESTÁ LA MAGIA DEL WEBSERVER! */
   webServer: {
     // Navegamos a la carpeta de tu app real y la arrancamos
-    command: 'cd ../gym-ai/gym-app && npm run dev',
+    command: 'cd ../gym-ai && npm run dev',
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
     

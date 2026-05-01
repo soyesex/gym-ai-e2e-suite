@@ -45,8 +45,10 @@ jobs:
       - name: Export Supabase keys
         id: supabase-keys
         run: |
-          echo "ANON_KEY=$(supabase status | grep 'anon key' | awk '{print $NF}')" >> "$GITHUB_OUTPUT"
-          echo "SERVICE_ROLE_KEY=$(supabase status | grep 'service_role key' | awk '{print $NF}')" >> "$GITHUB_OUTPUT"
+          ANON=$(supabase status -o env | grep ANON_KEY | cut -d= -f2 | tr -d '"')
+          SRK=$(supabase status -o env | grep SERVICE_ROLE_KEY | cut -d= -f2 | tr -d '"')
+          echo "ANON_KEY=$ANON" >> "$GITHUB_OUTPUT"
+          echo "SERVICE_ROLE_KEY=$SRK" >> "$GITHUB_OUTPUT"
 
       # ── 4. Tests ──────────────────────────────────────────
       - name: Run Playwright
