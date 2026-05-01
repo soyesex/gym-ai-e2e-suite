@@ -18,6 +18,15 @@ jobs:
       - name: Clone gym-ai app
         run: git clone --depth 1 https://github.com/soyesex/gym-ai.git ../gym-ai
 
+      - name: Debug — show directory layout
+        run: |
+          echo "=== pwd ==="
+          pwd
+          echo "=== parent directory ==="
+          ls -la ..
+          echo "=== looking for gym-ai ==="
+          find /home/runner/work -maxdepth 4 -name "gym-app" -type d 2>/dev/null || echo "gym-app not found"
+          
       # ── 2. Node.js + dependencias ─────────────────────────
       - name: Setup Node.js
         uses: actions/setup-node@v4
