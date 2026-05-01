@@ -1,6 +1,6 @@
 import { BasePage } from "../base.page";
 import { Locator } from '@playwright/test';
-import { expect } from '../../fixtures/base';
+import { expect } from '@/fixtures/base';
 
 export class LoginPage extends BasePage {
     readonly url = '/login';

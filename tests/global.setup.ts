@@ -1,8 +1,8 @@
 import { test as setup } from '@playwright/test';
 import { createClient } from '@supabase/supabase-js'
-import { env } from '../../gym-ai-e2e-suite/src/config/env';
-import { buildUser } from '../../gym-ai-e2e-suite/src/builders/user.builder'
-import { loginAndSaveState } from '../../gym-ai-e2e-suite/src/helpers/auth.helper';
+import { env } from '@/config/env';
+import { buildUser } from '@/builders/user.builder'
+import { loginAndSaveState } from '@/helpers/auth.helper';
 import path from 'path';
 
 setup('create authenticated state', async () => {

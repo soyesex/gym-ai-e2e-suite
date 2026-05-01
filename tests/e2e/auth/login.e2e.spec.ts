@@ -1,5 +1,4 @@
 import { test, expect } from '@/fixtures/base'
-
 import { LoginPage } from '@/pages/auth/login.page'
 
 test.describe('Login flow', () => { 

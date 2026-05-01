@@ -1,4 +1,4 @@
-import { test, expect } from '../../src/fixtures/base';
+import { test, expect } from '@/fixtures/base';
 
 test.describe('Auth API', () => {
     test('signs up a new user via Supabase Auth', async ({ testUser }) => {

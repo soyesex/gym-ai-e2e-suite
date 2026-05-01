@@ -48,7 +48,7 @@ API tests are cheap and fast; they should cover the bulk of contract validation.
 
 ## Project structure
 
-```
+```bash
 src/
   config/env.ts                  # Zod env validation — fails fast on missing vars
   fixtures/base.ts               # custom test export: supabaseAdmin + testUser
@@ -79,14 +79,14 @@ playwright.config.ts              # 4 projects: setup, api, e2e-anon, e2e-authen
 
 ## Test coverage (8 passing)
 
-| File | Tests | What it verifies |
-|---|---|---|
-| `api/health.api.spec.ts` | 1 | `GET /` returns 200 |
-| `api/auth.api.spec.ts` | 2 | user creation via Admin API; password login returns a session |
-| `e2e/auth/smoke.e2e.spec.ts` | 1 | landing page renders hero heading and login link |
-| `e2e/auth/login.e2e.spec.ts` | 2 | login page loads; successful login redirects to `/onboarding` |
-| `e2e/authenticated/onboarding.e2e.spec.ts` | 1 | completes all 7 wizard steps (name, goal, level, equipment, weight/height) and lands on dashboard |
-| `global.setup.ts` | 1 | creates auth user + writes `playwright/.auth/user.json` |
+| File                                       | Tests | What it verifies                                                                                  |
+| ------------------------------------------ | ----- | ------------------------------------------------------------------------------------------------- |
+| `api/health.api.spec.ts`                   | 1     | `GET /` returns 200                                                                               |
+| `api/auth.api.spec.ts`                     | 2     | user creation via Admin API; password login returns a session                                     |
+| `e2e/auth/smoke.e2e.spec.ts`               | 1     | landing page renders hero heading and login link                                                  |
+| `e2e/auth/login.e2e.spec.ts`               | 2     | login page loads; successful login redirects to `/onboarding`                                     |
+| `e2e/authenticated/onboarding.e2e.spec.ts` | 1     | completes all 7 wizard steps (name, goal, level, equipment, weight/height) and lands on dashboard |
+| `global.setup.ts`                          | 1     | creates auth user + writes `playwright/.auth/user.json`                                           |
 
 ---
 
@@ -118,7 +118,7 @@ Fill in the values for your local Supabase instance. After running `supabase sta
 
 Required variables:
 
-```
+```env
 BASE_URL=http://localhost:3000
 SUPABASE_URL=http://localhost:54321
 NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321
@@ -170,6 +170,7 @@ The workflow at `.github/workflows/playwright.yml` is configured with `workflow_
 ## Roadmap
 
 **Foundation**
+
 - [x] Playwright + TypeScript + ESLint + Prettier
 - [x] Zod env validation at startup
 - [x] Faker-based user builder with UUID-stamped emails
@@ -179,6 +180,7 @@ The workflow at `.github/workflows/playwright.yml` is configured with `workflow_
 - [x] GitHub Actions workflow (manual trigger)
 
 **Test coverage**
+
 - [x] API: health check, signup, login
 - [x] E2E: landing page smoke, login flow, full onboarding wizard
 - [ ] API: workout plan creation and DB persistence verification
@@ -186,6 +188,7 @@ The workflow at `.github/workflows/playwright.yml` is configured with `workflow_
 - [ ] E2E: live workout session
 
 **Infrastructure**
+
 - [ ] Gemini API mocking layer (`page.route`) for UI tests that aren't testing AI
 - [ ] DB assertion in onboarding test (profile persistence via `supabaseAdmin`)
 - [ ] CI: switch workflow trigger to `pull_request` + `push: [main]`

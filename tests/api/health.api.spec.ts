@@ -1,4 +1,4 @@
-import { test, expect } from '../../src/fixtures/base';
+import { test, expect } from '@/fixtures/base';
 
 test.describe('API health check', () => {
     test('GET / returns 200', async ({ request }) => {

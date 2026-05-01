@@ -1,5 +1,5 @@
-import { test, expect } from '../../../src/fixtures/base';
-import { OnboardingPage } from '../../../src/pages/onboarding/onboarding.page'
+import { test, expect } from '@/fixtures/base';
+import { OnboardingPage } from '@/pages/onboarding/onboarding.page'
 
 test.describe('Onboarding flow', () => {
     test('completes full onboarding wizard and redirects to dashboard', async ({ page, testUser }) => {

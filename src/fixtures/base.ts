@@ -1,7 +1,7 @@
 import { test as base, expect  } from '@playwright/test';
 import { createClient, SupabaseClient } from '@supabase/supabase-js'
-import { env } from '../config/env';
-import { buildUser, TestUser } from '../builders/user.builder'
+import { env } from '@/config/env';
+import { buildUser, TestUser } from '@/builders/user.builder'
 
 type Fixtures = {
     supabaseAdmin: SupabaseClient,

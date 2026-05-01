@@ -2,7 +2,7 @@
 import { createClient } from '@supabase/supabase-js';
 import fs from 'fs';
 import path from 'path';
-import { env } from '../config/env';
+import { env } from '@/config/env';
 
 export async function loginAndSaveState(
   email: string,
