@@ -18,9 +18,6 @@ jobs:
       - name: Clone gym-ai app
         run: git clone --depth 1 https://github.com/soyesex/gym-ai.git ../gym-ai
 
-      - name: Debug — show gym-ai contents
-        run: ls -la ../gym-ai/
-
       # ── 2. Node.js + dependencias ─────────────────────────
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -31,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Install app deps
-        run: cd ../gym-ai/gym-app && npm ci
+        run: cd ../gym-ai && npm ci
 
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
