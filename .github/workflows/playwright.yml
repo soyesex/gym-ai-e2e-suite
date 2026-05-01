@@ -28,8 +28,7 @@ jobs:
         run: npm ci
 
       - name: Install app deps
-        working-directory: ../gym-ai/gym-app
-        run: npm ci
+        run: cd ../gym-ai/gym-app && npm ci
 
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
