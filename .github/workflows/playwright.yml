@@ -15,11 +15,8 @@ jobs:
       - name: Checkout e2e suite
         uses: actions/checkout@v4
 
-      - name: Checkout gym-ai app
-        uses: actions/checkout@v4
-        with:
-          repository: soyesex/gym-ai
-          path: ../gym-ai
+      - name: Clone gym-ai app
+        run: git clone --depth 1 https://github.com/soyesex/gym-ai.git ../gym-ai
 
       # ── 2. Node.js + dependencias ─────────────────────────
       - name: Setup Node.js
